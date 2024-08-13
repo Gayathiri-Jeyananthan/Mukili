@@ -13,13 +13,15 @@ const port = 5000;
 
 //Creating the connection
 
+// Replace <username>, <password>, and <your-cluster-url> with your actual Atlas details
+const mongoURI = "mongodb+srv://gayathirijeyananthan:gayu20010408@cluster0.1ys7fn7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// Creating the connection to MongoDB Atlas
 mongoose
+  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to MongoDB Atlas Gayu"))
+  .catch((err) => console.error("Could not connect to MongoDB Atlas...", err));
 
-.connect("mongodb://127.0.0.1/ECommerce")
-
-.then(() => console.log("Connected to MongoDB..."))
-
-.catch((err) => console.error("Could not connect to MongoDB..."));
 
 app.get("/", (req, res) => {
 
