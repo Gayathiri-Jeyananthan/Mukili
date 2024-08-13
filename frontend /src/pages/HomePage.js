@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import ProductCard from "../components/ProductCard";
+
 
 const HomePage = () => {
   const [productList, setProductList] = useState([]);
@@ -20,9 +22,8 @@ const HomePage = () => {
 
   return (
     <React.Fragment>
-      <h2>My HomePage</h2>
-      <h2>{productList[0].title}</h2>
-      <h2>{productList[1].title}</h2>
+       {productList.length !== 0 &&
+        productList.map((product) => <ProductCard product={product} />)}
     </React.Fragment>
   );
 };
